@@ -3,10 +3,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import config.DataConfig;
 
+
 public class IOCTest {
     public static void main(String[] args) {
+//      todo 00: 常规方法
+        DataConfig dataConfig = new DataConfig();
+        dataConfig.setPassword("sunwu");
+        dataConfig.setUsername("孙武");
+        System.out.println(dataConfig);
+
 //        todo 01: 设置值, 相当于自动调用set方法
-        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("spring.xml");
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("beans.xml");
         Object config = ioc.getBean("config");
         System.out.println(config);
 
@@ -29,5 +36,13 @@ public class IOCTest {
         anno.DataConfig bean1 = ioc5.getBean(anno.DataConfig.class);
         System.out.println(bean1);
 
+        /*
+        输出
+        DataConfig(username=孙武, password=sunwu)
+        DataConfig(username=sunwu, password=pass)
+        DataConfig(username=孙武, password=sunwu)
+        DataConfig(username=孙武, password=sunwu)
+        DataConfig(username=111, password=222)
+        */
     }
 }

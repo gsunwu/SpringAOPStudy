@@ -3,7 +3,7 @@ package config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//todo 02: 类似于 spring.xml 类, 通过 @BeanConfiguration 来表示其功能
+//todo 02: 类似于 beans.xml 类, 通过 @BeanConfiguration 来表示其功能
 @Configuration
 public class BeanConfiguration {
 
@@ -11,7 +11,7 @@ public class BeanConfiguration {
     @Bean
     /**
      * todo
-     * @Bean 告诉框架这是一个方法，可以调用
+     * @Bean 告诉框架这是一个方法，可以使用 getBean（） 调用
      *
      * 使用方式：
      *  AnnotationConfigApplicationContext ioc2 = new AnnotationConfigApplicationContext(BeanConfiguration.class);

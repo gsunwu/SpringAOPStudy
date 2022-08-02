@@ -2,7 +2,7 @@ package aop;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component // 类似于 bean 中的property 标签，告诉 IoC 这是一个组件
 public class Calc implements ICalc {
     @Override
     public int add(int a, int b) {
